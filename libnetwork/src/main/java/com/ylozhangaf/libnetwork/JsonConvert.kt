@@ -1,7 +1,6 @@
 package com.ylozhangaf.libnetwork
 
 import com.alibaba.fastjson.JSON
-import com.google.gson.Gson
 import java.lang.reflect.Type
 
 class JsonConvert : Convert<Any> {

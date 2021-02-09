@@ -1,19 +1,18 @@
 package com.ylozhangaf.ppjoke.utils
 
 import android.content.ComponentName
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
+
 import androidx.navigation.NavGraph
 import androidx.navigation.NavGraphNavigator
 import androidx.navigation.fragment.FragmentNavigator
-import com.ylozhangaf.ppjoke.FixFragmentNavigator
+import com.ylozhangaf.libcommon.AppGlobals
 
 class NavGraphBuilder {
 
-    companion object{
-        fun build(controller : NavController) {
+    companion object {
+        fun build(controller: NavController) {
             val provider = controller.navigatorProvider
 
 
@@ -33,7 +32,12 @@ class NavGraphBuilder {
                     navGraph.addDestination(destination)
                 } else {
                     val destination = activityNavigator.createDestination().apply {
-                        setComponentName(ComponentName(AppGlobals.getApplication().packageName,it.clazName))
+                        setComponentName(
+                            ComponentName(
+                                AppGlobals.getApplication().packageName,
+                                it.clazName
+                            )
+                        )
                         id = it.id
                         addDeepLink(it.pageUrl)
                     }
