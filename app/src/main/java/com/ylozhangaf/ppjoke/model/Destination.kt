@@ -7,5 +7,4 @@ class Destination {
     var isFragment: Boolean = false
     var asStarter: Boolean = false
     var needLogin: Boolean = false
-    var isneed : Boolean = false
 }
