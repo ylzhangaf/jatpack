@@ -20,4 +20,6 @@ abstract class CacheDatabase : RoomDatabase() {
             return roomDataBase
         }
     }
+
+    abstract fun getCache() : CacheDao
 }

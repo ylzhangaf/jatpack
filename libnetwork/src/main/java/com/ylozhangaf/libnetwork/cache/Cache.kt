@@ -1,5 +1,11 @@
 package com.ylozhangaf.libnetwork.cache
 
-data class Cache(val key : String) {
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "cache")
+data class Cache(@PrimaryKey val key : String) {
+
     var data : ByteArray? = null
 }
