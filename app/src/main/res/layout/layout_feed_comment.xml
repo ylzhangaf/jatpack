@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="comment"
+            type="com.ylozhangaf.ppjoke.model.Comment"/>
+
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <import type="com.ylozhangaf.ppjoke.utils.StringConvert"/>
+        <import type="com.ylozhangaf.ppjoke.model.Comment"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/color_gray2"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_god_comment"
+            tools:src="@drawable/icon_god_comment"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.ylozhangaf.ppjoke.ui.view.DataBindingImageView
+                    image_url="@{comment.author.avatar}"
+                    isCircle="@{true}"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    tools:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/tvew_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="18dp"
+                    android:textColor="@color/color_3d3"
+                    android:textSize="12sp"
+                    android:text="@{comment.author.name}"
+                    tools:text="ddddddd"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1px"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{comment.ugc.likeCount>0?StringConvert.Companion.convertFeedUgc(comment.ugc.likeCount):null}"
+                    android:textColor="@{comment.ugc.hasLiked?@color/color_theme:@color/color_3d3}"
+                    android:textSize="12sp"
+                    tools:text="100"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:padding="2dp"
+                    android:src="@{comment.ugc.hasLiked?@drawable/icon_cell_liked:@drawable/icon_cell_like}"
+                    tools:src="@drawable/icon_cell_liked" />
+            </LinearLayout>
+
+            <TextView
+                tools:text="dddddddddddddddd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="36dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/color_3d3"
+                android:textSize="14sp"
+                android:text="@{comment.commentText}"
+                android:visibility="@{TextUtils.isEmpty(comment.commentText)?View.GONE:View.VISIBLE}"/>
+
+            <FrameLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp">
+
+                <com.ylozhangaf.ppjoke.ui.view.DataBindingImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    image_url="@{comment.imageUrl}"
+                    isCircle="@{false}"
+                    tools:src="@mipmap/ic_launcher"/>
+
+                <ImageView
+                    android:visibility="@{comment.commentType==Comment.COOMENTTYPE_TWO?View.VISIBLE:View.GONE}"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_video_play" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

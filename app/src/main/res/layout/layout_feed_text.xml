@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="feedText"
+            type="String" />
+
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:orientation="vertical"
+        android:textColor="#2f2f2f"
+        android:textSize="16sp"
+        android:text="@{feedText}"
+        android:layout_marginBottom="10dp"
+        android:visibility="@{TextUtils.isEmpty(feedText)?View.GONE:View.VISIBLE}"
+        tools:text="dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"/>
+</layout>

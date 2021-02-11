@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ylozhangaf.ppjoke.ui.view.DataBindingImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivew_background"
+        android:background="@color/color_theme_10"/>
+
+
+
+    <com.ylozhangaf.ppjoke.ui.view.DataBindingImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivew_cover"/>
+
+    <ImageView
+        android:src="@drawable/icon_video_play"
+        android:layout_gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ivew_play"/>
+
+
+
+    <ProgressBar
+        android:id="@+id/pbar_buffer"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/color_theme_10"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</merge>

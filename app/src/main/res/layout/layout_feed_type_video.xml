@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="feed"
+            type="com.ylozhangaf.ppjoke.model.Feed" />
+
+        <import type="com.ylozhangaf.ppjoke.model.Feed"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <include layout="@layout/layout_feed_author"
+            app:user="@{feed.author}"/>
+
+        <include layout="@layout/layout_feed_text"
+            app:feedText="@{feed.feeds_text}"/>
+
+       <!--视频区域-->
+        <com.ylozhangaf.ppjoke.ui.view.ListPlayerView
+            android:id="@+id/view_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            />
+
+        <include layout="@layout/layout_feed_tag"
+            app:tagText="@{feed.activityText}"/>
+
+        <include layout="@layout/layout_feed_comment"
+            app:comment="@{feed.topComment}"/>
+
+        <include layout="@layout/layout_feed_interaction"
+            app:feed="@{feed}"/>
+    </LinearLayout>
+</layout>

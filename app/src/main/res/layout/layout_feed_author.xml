@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="User"/>
+        <import type="com.ylozhangaf.ppjoke.model.User"></import>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical">
+
+        <com.ylozhangaf.ppjoke.ui.view.DataBindingImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/ivew_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            image_url="@{user.avatar}"
+            isCircle="@{true}"
+            tools:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:text="@{user.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            tools:text="ddddddddd"/>
+    </LinearLayout>
+</layout>
